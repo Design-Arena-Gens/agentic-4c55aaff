@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
+
+:root {
+  --bg: #f0f9ff;
+  --text: #0f172a;
+  --accent: #0ea5e9;
+  --accent-2: #22c55e;
+  --sun: #fbbf24;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Nunito', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg), #ffffff);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 20px 80px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  font-size: 22px;
+}
+
+.controls { display: flex; align-items: center; gap: 10px; }
+
+button.primary {
+  background: var(--accent);
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: white;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.scene {
+  margin-top: 24px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 24px rgba(2, 6, 23, 0.06);
+}
+
+.sceneTitle { font-size: 20px; font-weight: 900; margin: 0 0 10px; }
+.cue { font-size: 14px; opacity: 0.7; margin-bottom: 10px; }
+
+.sceneContent { font-size: 18px; line-height: 1.6; }
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  margin-top: 24px;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid #e5e7eb;
+}
+
+.progressWrap { padding: 12px 0; }
+.progress {
+  height: 10px;
+  width: 100%;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progressInner {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  width: var(--progress, 0%);
+  transition: width 400ms ease;
+}
+
+.park {
+  position: relative;
+  height: 220px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #dff6ff 0%, #c7f7d4 60%, #bff0c6 100%);
+  overflow: hidden;
+}
+
+.sun { position: absolute; top: 18px; left: 18px; width: 56px; height: 56px; background: var(--sun); border-radius: 50%; box-shadow: 0 0 20px rgba(251,191,36,0.6); animation: float 4s ease-in-out infinite; }
+
+.kite { position: absolute; right: 40px; top: 30px; width: 0; height: 0; border-left: 18px solid transparent; border-right: 18px solid transparent; border-bottom: 28px solid #ef4444; transform: rotate(20deg); animation: drift 6s ease-in-out infinite; }
+
+.grass { position: absolute; bottom: 0; left: 0; right: 0; height: 70px; background: repeating-linear-gradient(90deg, #22c55e 0 16px, #16a34a 16px 32px); }
+
+.kid { position: absolute; bottom: 70px; width: 28px; height: 28px; background: #2563eb; border-radius: 50%; animation: hop 1.6s ease-in-out infinite; }
+.kid:nth-child(1) { left: 22%; animation-delay: 0.0s; }
+.kid:nth-child(2) { left: 32%; animation-delay: 0.2s; }
+.kid:nth-child(3) { left: 42%; animation-delay: 0.4s; }
+
+.apple { display: inline-block; margin: 0 4px; transform-origin: center; animation: roll 1.4s ease-in-out infinite; }
+
+@keyframes float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-6px) } }
+@keyframes drift { 0%,100% { transform: translateY(0) rotate(20deg) } 50% { transform: translateY(-8px) rotate(24deg) } }
+@keyframes hop { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
+@keyframes roll { 0% { transform: translateX(0) rotate(0) } 100% { transform: translateX(6px) rotate(360deg) } }
